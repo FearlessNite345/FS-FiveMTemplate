@@ -18,7 +18,7 @@ function checkVersion()
     local current = GetResourceMetadata(GetCurrentResourceName(), "version", 0);
     cur = "Current version: " .. current
 
-    PerformHttpRequest('https://raw.githubusercontent.com/FearlessNite345/FearlessStudios-VersionChecker/main/'..name..'-version.txt', function(Error, Version, Header)   
+    PerformHttpRequest('https://raw.githubusercontent.com/FearlessNite345/FearlessStudios-VersionChecker/main/'..string.lower(name)..'-version.txt', function(Error, Version, Header)   
         if Error ~= 200 then 
             printVersion(cur, 'Latest version: ^8Failed to fetch', '^8' .. Error)
             return
