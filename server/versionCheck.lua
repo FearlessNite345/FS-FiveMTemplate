@@ -27,9 +27,9 @@ function checkVersion()
         late = "Latest version: " .. Version
 
         if Version ~= current then
-            status = "^8Your MusicHub version is outdated, Go to the keymaster download page to update to the latest."
+            status = "^8Your" .. name .. " version is outdated, Go to the download page to update to the latest."
         else
-            status = "^2MusicHub is up to date!"
+            status = "^2" .. name .. " is up to date!"
         end
 
         printVersion(cur, late, status)
