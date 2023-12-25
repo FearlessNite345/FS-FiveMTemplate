@@ -29,33 +29,6 @@ function getClosestObject(maxDistance, items)
     return closestModelCoords, closestModelHandle, closestTextOffset, closestModelType
 end
 
-function getClosestPed(maxDistance)
-    local playerPed = GetPlayerPed(-1)
-    local playerCoords = GetEntityCoords(playerPed)
-
-    local closestPedCoords, closestPedHandle
-    local closestDistance = maxDistance + 1
-
-    local function checkAndUpdateClosest(pedHandle)
-        local pedCoords = GetEntityCoords(pedHandle)
-        local distance = GetDistanceBetweenCoords(playerCoords.x, playerCoords.y, playerCoords.z, pedCoords.x, pedCoords.y, pedCoords.z, true)
-
-        if distance <= maxDistance and distance < closestDistance then
-            closestPedCoords = pedCoords
-            closestPedHandle = pedHandle
-            closestDistance = distance
-        end
-    end
-
-    local nearbyPeds = GetPedNearbyPeds(playerPed, 10.0, -1)
-    for _, pedHandle in ipairs(nearbyPeds) do
-        checkAndUpdateClosest(pedHandle)
-    end
-
-    return closestPedCoords, closestPedHandle
-end
-
-
 function DrawError2D(text, seconds)
     local startTime = GetGameTimer()
     local duration = seconds * 1000
