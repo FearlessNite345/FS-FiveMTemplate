@@ -1,4 +1,4 @@
-function getClosestObject(maxDistance, items)
+function GetClosestObjectToPlayer(maxDistance, items)
     local playerPed = GetPlayerPed(-1)
     local playerCoords = GetEntityCoords(playerPed)
 
