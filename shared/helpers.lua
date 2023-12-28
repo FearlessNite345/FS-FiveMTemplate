@@ -1,11 +1,11 @@
-function GetClosestObjectToPlayer(maxDistance, items)
+function GetClosestModelWithinDistance(maxDistance, items)
     local playerPed = GetPlayerPed(-1)
     local playerCoords = GetEntityCoords(playerPed)
 
-    local closestModelCoords, closestModelHandle, closestTextOffset, closestModelType
+    local closestModelCoords, closestModelHandle, closestTextOffset
     local closestDistance = maxDistance + 1
 
-    local function checkAndUpdateClosest(modelHash, textOffset, modelType)
+    local function checkAndUpdateClosest(modelHash, textOffset)
         local modelHandle = GetClosestObjectOfType(playerCoords.x, playerCoords.y, playerCoords.z, 10.0, modelHash, false, false, false)
 
         if DoesEntityExist(modelHandle) then
@@ -16,7 +16,6 @@ function GetClosestObjectToPlayer(maxDistance, items)
                 closestModelCoords = modelCoords
                 closestModelHandle = modelHandle
                 closestTextOffset = textOffset
-                closestModelType = modelType
                 closestDistance = distance
             end
         end
@@ -26,7 +25,7 @@ function GetClosestObjectToPlayer(maxDistance, items)
         checkAndUpdateClosest(modelPropData.model, modelPropData.textHeightOffset)
     end
 
-    return closestModelCoords, closestModelHandle, closestTextOffset, closestModelType
+    return closestModelCoords, closestModelHandle, closestTextOffset
 end
 
 function DrawError2D(text, seconds)
