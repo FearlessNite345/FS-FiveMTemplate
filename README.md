@@ -9,7 +9,6 @@ Hey there! Welcome to the FearlessStudios-FiveMTemplate. This is your go-to setu
 This function retrieves information about the closest model within a specified distance from the player.
 
 ```lua
--- Example Usage
 local maxDistance = 10.0
 local items = {
     { model = "example_model1", textHeightOffset = 1.0 },
@@ -30,7 +29,6 @@ local closestModelCoords, closestModelHandle, closestTextOffset = GetClosestMode
 This function displays an error message on the screen for a specified duration.
 
 ```lua
--- Example Usage
 local errorMessage = "Error! Something went wrong."
 local durationInSeconds = 5
 
@@ -42,7 +40,6 @@ DrawError2D(errorMessage, durationInSeconds)
 This function displays a success message on the screen for a specified duration.
 
 ```lua
--- Example Usage
 local successMessage = "Success! Action completed."
 local durationInSeconds = 3
 
@@ -54,7 +51,6 @@ DrawSuccess2D(successMessage, durationInSeconds)
 This function draws text in 3D space at the specified coordinates.
 
 ```lua
--- Example Usage
 local x, y, z = 123.45, 67.89, 10.0
 local scale = 0.5
 local text = "This is a 3D text example"
@@ -67,7 +63,6 @@ DrawText3D(x, y, z, scale, text)
 This function draws text on the screen at 2D coordinates.
 
 ```lua
--- Example Usage
 local x, y = 0.5, 0.8
 local text = "This is a 2D text example"
 local scale = 0.6
