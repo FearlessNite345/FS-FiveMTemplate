@@ -1,5 +1,5 @@
 function GetClosestModelWithinDistance(maxDistance, items)
-    local playerPed = GetPlayerPed(-1)
+    local playerPed = PlayerPedId()
     local playerCoords = GetEntityCoords(playerPed)
 
     local closestModelCoords, closestModelHandle, closestTextOffset
@@ -10,7 +10,7 @@ function GetClosestModelWithinDistance(maxDistance, items)
 
         if DoesEntityExist(modelHandle) then
             local modelCoords = GetEntityCoords(modelHandle)
-            local distance = GetDistanceBetweenCoords(playerCoords.x, playerCoords.y, playerCoords.z, modelCoords.x, modelCoords.y, modelCoords.z, true)
+            local distance = #(playerCoords - modelCoords)
 
             if distance <= maxDistance and distance < closestDistance then
                 closestModelCoords = modelCoords
