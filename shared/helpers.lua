@@ -6,7 +6,11 @@ function GetClosestModelWithinDistance(maxDistance, items)
     local closestDistance = maxDistance + 1
 
     local function checkAndUpdateClosest(modelHash, textOffset)
-        local modelHandle = GetClosestObjectOfType(playerCoords.x, playerCoords.y, playerCoords.z, 10.0, modelHash, false, false, false)
+        local modelHandle = GetClosestObjectOfType(playerCoords.x,
+                                                   playerCoords.y,
+                                                   playerCoords.z, 10.0,
+                                                   modelHash, false, false,
+                                                   false)
 
         if DoesEntityExist(modelHandle) then
             local modelCoords = GetEntityCoords(modelHandle)
@@ -22,7 +26,8 @@ function GetClosestModelWithinDistance(maxDistance, items)
     end
 
     for _, modelPropData in ipairs(items) do
-        checkAndUpdateClosest(modelPropData.model, modelPropData.textHeightOffset)
+        checkAndUpdateClosest(modelPropData.model,
+                              modelPropData.textHeightOffset)
     end
 
     return closestModelCoords, closestModelHandle, closestTextOffset
@@ -50,10 +55,9 @@ end
 
 function DrawText3D(x, y, z, scale, text)
     local onScreen, _x, _y = World3dToScreen2d(x, y, z)
-    local pX, pY, pZ = table.unpack(GetGameplayCamCoords())
     SetTextScale(scale, scale)
     SetTextFont(4)
-    SetTextProportional(1)
+    SetTextProportional(true)
     SetTextEntry("STRING")
     SetTextCentre(true)
     SetTextColour(255, 255, 255, 255)
@@ -63,18 +67,14 @@ function DrawText3D(x, y, z, scale, text)
 end
 
 function DrawText2D(x, y, text, scale, center)
-    -- Draw text on screen
     SetTextFont(4)
-    SetTextProportional(7)
+    SetTextProportional(true)
     SetTextScale(scale, scale)
     SetTextColour(255, 255, 255, 255)
-    SetTextDropShadow(0, 0, 0, 0,255)
-    --SetTextDropShadow()
+    SetTextDropShadow()
     SetTextEdge(4, 0, 0, 0, 255)
     SetTextOutline()
-    if center then 
-    	SetTextJustification(0)
-    end
+    if center then SetTextJustification(0) end
     SetTextEntry("STRING")
     AddTextComponentString(text)
     DrawText(x, y)
