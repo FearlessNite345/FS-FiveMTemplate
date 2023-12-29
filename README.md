@@ -2,6 +2,24 @@
 
 Hey there! Welcome to the FearlessStudios-FiveMTemplate. This is your go-to setup for crafting Lua resources tailored for FiveM.
 
+## Utilizing Version Checker
+
+This script provides a version-checking mechanism for your FiveM resource by comparing the current version with the latest version available on a specified GitHub repository.
+
+#### Configuration
+
+Before using the `versionCheck.lua` script, make sure to customize the following variables:
+
+```lua
+local authorName = 'CHANGEME' -- Your author name
+local resourceName = 'CHANGEME' -- The name of your FiveM resource
+
+-- Github info to check the version
+local githubUsername = 'CHANGEME' -- Your GitHub username
+local githubRepo = 'CHANGEME' -- Your GitHub repository name
+local githubVersionFilename = 'CHANGEME' -- The filename on GitHub containing the version information
+```
+
 ## Utilizing Helper Functions
 
 #### GetClosestModelWithinDistance

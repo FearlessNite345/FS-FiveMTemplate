@@ -3,9 +3,9 @@ local resourceName = 'CHANGEME' -- The name of your FiveM resource
 local fullName = '^3[' .. authorName .. '-' .. resourceName .. '] '
 
 -- Github info to check the version
-local githubUsername = 'CHANGEME' -- This is your username to go to the repo below
-local githubRepo = 'CHANGEME' -- This is for the version checking
-local githubVersionFilename = 'CHANGEME'
+local githubUsername = 'CHANGEME' -- Your GitHub username
+local githubRepo = 'CHANGEME' -- Your GitHub repository name
+local githubVersionFilename = 'CHANGEME' -- The filename on GitHub containing the version information
 
 local function printVersion(cur, late, status)
     print('^7----------------------------------------------------------')
