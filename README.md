@@ -11,12 +11,12 @@ This script provides a version-checking mechanism for your FiveM resource by com
 Before using the `versionCheck.lua` script, make sure to customize the following variables:
 
 ```lua
-local authorName = 'CHANGEME' -- Your author name
-local resourceName = 'CHANGEME' -- The name of your FiveM resource
+local authorName = 'CHANGEME'
+local resourceName = 'CHANGEME'
 
-local githubUsername = 'CHANGEME' -- Your GitHub username
-local githubRepo = 'CHANGEME' -- Your GitHub repository name
-local githubVersionFilename = 'CHANGEME' -- The filename on GitHub containing the version information
+local githubUsername = 'CHANGEME'
+local githubRepo = 'CHANGEME'
+local githubVersionFilename = 'CHANGEME'
 ```
 
 ## Utilizing Helper Functions
