@@ -14,7 +14,6 @@ Before using the `versionCheck.lua` script, make sure to customize the following
 local authorName = 'CHANGEME' -- Your author name
 local resourceName = 'CHANGEME' -- The name of your FiveM resource
 
--- Github info to check the version
 local githubUsername = 'CHANGEME' -- Your GitHub username
 local githubRepo = 'CHANGEME' -- Your GitHub repository name
 local githubVersionFilename = 'CHANGEME' -- The filename on GitHub containing the version information
