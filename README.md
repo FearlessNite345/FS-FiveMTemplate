@@ -28,39 +28,51 @@ This function retrieves information about the closest model within a specified d
 ```lua
 local maxDistance = 10.0
 local items = {
-    { model = "example_model1", textHeightOffset = 1.0 },
-    { model = "example_model2", textHeightOffset = 0.5 },
+    { model = `prop_gas_pump_1a`, textHeightOffset = 1.2 },
+    { model = `prop_gas_pump_old2`, textHeightOffset = 1.2 },
     -- Add more model data as needed
 }
 
 local closestModelCoords, closestModelHandle, closestTextOffset = GetClosestModelWithinDistance(maxDistance, items)
 ```
 
-- You can now use the retrieved information as needed
+##### You can now use the retrieved information as needed
+- model inside of items is the model hash for FiveM  
 - closestModelCoords: Coordinates of the closest model
 - closestModelHandle: Handle of the closest model
 - closestTextOffset: Text height offset associated with the closest model (useful for drawing text on the model)
 
-#### DrawError2D
+#### DrawNotification3D
 
-This function displays an error message on the screen for a specified duration.
+Draws a 3D notification at the specified coordinates.
+
+##### Parameters
+
+- `coords` (table): The 3D coordinates where the notification should be displayed.
+- `text` (string): The text of the notification.
+- `seconds` (number): The duration of the notification in seconds.
+- `color` (string): The color of the notification. Use one of the predefined colors. Refer to [FiveM Text Formatting](https://docs.fivem.net/docs/game-references/text-formatting/) for color codes.
+
+##### Example
 
 ```lua
-local errorMessage = "Error! Something went wrong."
-local durationInSeconds = 5
-
-DrawError2D(errorMessage, durationInSeconds)
+DrawNotification3D({ x = 10.0, y = 20.0, z = 30.0 }, "This is a 3D notification", 5, "g")
 ```
 
-#### DrawSuccess2D
+#### DrawNotification2D
 
-This function displays a success message on the screen for a specified duration.
+Draws a 2D notification at the center of the screen.
+
+##### Parameters
+
+- `text` (string): The text of the notification.
+- `seconds` (number): The duration of the notification in seconds.
+- `color` (string): The color of the notification. Use one of the predefined colors. Refer to [FiveM Text Formatting](https://docs.fivem.net/docs/game-references/text-formatting/) for color codes.
+
+##### Example
 
 ```lua
-local successMessage = "Success! Action completed."
-local durationInSeconds = 3
-
-DrawSuccess2D(successMessage, durationInSeconds)
+DrawNotification2D("This is a 2D notification", 5, "y")
 ```
 
 #### DrawText3D
@@ -87,7 +99,6 @@ local center = true -- Set to false for left-aligned text
 
 DrawText2D(x, y, text, scale, center)
 ```
-
 
 ## Contributing
 

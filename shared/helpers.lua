@@ -33,37 +33,40 @@ function GetClosestModelWithinDistance(maxDistance, items)
     return closestModelCoords, closestModelHandle, closestTextOffset
 end
 
-function DrawError2D(text, seconds)
+function DrawNotification3D(coords, text, seconds, color)
     local startTime = GetGameTimer()
     local duration = seconds * 1000
 
     while GetGameTimer() - startTime < duration do
-        DrawText2D(0.5, 0.8, '~r~' .. text, 0.6, true)
+        DrawText3D(coords.x, coords.y, coords.z, 0.6, '~' .. color .. '~' .. text)
         Citizen.Wait(0)
     end
 end
 
-function DrawSuccess2D(text, seconds)
+function DrawNotification2D(text, seconds, color)
     local startTime = GetGameTimer()
     local duration = seconds * 1000
 
     while GetGameTimer() - startTime < duration do
-        DrawText2D(0.5, 0.8, '~g~' .. text, 0.6, true)
+        DrawText2D(0.5, 0.8, '~' .. color .. '~' .. text, 0.6, true)
         Citizen.Wait(0)
     end
 end
 
 function DrawText3D(x, y, z, scale, text)
     local onScreen, _x, _y = World3dToScreen2d(x, y, z)
-    SetTextScale(scale, scale)
-    SetTextFont(4)
-    SetTextProportional(true)
-    SetTextEntry("STRING")
-    SetTextCentre(true)
-    SetTextColour(255, 255, 255, 255)
-    SetTextOutline()
-    AddTextComponentString(text)
-    DrawText(_x, _y)
+
+    if onScreen then
+        SetTextScale(scale, scale)
+        SetTextFont(4)
+        SetTextProportional(true)
+        SetTextEntry("STRING")
+        SetTextCentre(true)
+        SetTextColour(255, 255, 255, 255)
+        SetTextOutline()
+        AddTextComponentString(text)
+        DrawText(_x, _y)
+    end
 end
 
 function DrawText2D(x, y, text, scale, center)

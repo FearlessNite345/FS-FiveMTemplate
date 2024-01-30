@@ -359,6 +359,6 @@ local Keys = {
     [357] = "X",
 }
 
-function GetKey(key)
-    return Keys[key]
+function GetKeyStringFromKeyID(keyID)
+    return Keys[keyID]
 end
