@@ -1,3 +1,3 @@
 Config = {}
 
-Config.checkForUpdate = true
+Config.checkForUpdate = true -- Would you like to Check for Updates?
