@@ -47,6 +47,6 @@ local function checkVersion()
         end)
 end
 
-if Config.checkForUpdate then 
+if Config.checkForUpdate then
     checkVersion()
 end
