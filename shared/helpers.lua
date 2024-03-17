@@ -42,6 +42,14 @@ function SetupModel(model)
     SetModelAsNoLongerNeeded(model)
 end
 
+function RandomLimited(min, max, limit)
+    local result
+    repeat
+        result = math.random(min, max)
+    until math.abs(result) >= limit
+    return result
+end
+
 function DrawNotification3D(coords, text, seconds, color)
     local startTime = GetGameTimer()
     local duration = seconds * 1000
