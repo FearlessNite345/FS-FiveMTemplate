@@ -1,6 +1,6 @@
 function GetClosestModelWithinDistance(maxDistance, items)
     local playerPed = PlayerPedId()
-    local playerCoords = GetEntityCoords(playerPed)
+    local playerCoords = GetEntityCoords(playerPed, false)
 
     local closestModelCoords, closestModelHandle, closestTextOffset
     local closestDistance = maxDistance + 1
@@ -13,7 +13,7 @@ function GetClosestModelWithinDistance(maxDistance, items)
                                                    false)
 
         if DoesEntityExist(modelHandle) then
-            local modelCoords = GetEntityCoords(modelHandle)
+            local modelCoords = GetEntityCoords(modelHandle, false)
             local distance = #(playerCoords - modelCoords)
 
             if distance <= maxDistance and distance < closestDistance then
@@ -71,18 +71,18 @@ function DrawNotification2D(text, seconds, color)
 end
 
 function DrawText3D(x, y, z, scale, text)
-    local onScreen, _x, _y = World3dToScreen2d(x, y, z)
+    local onScreen, _x, _y = GetScreenCoordFromWorldCoord(x, y, z)
 
     if onScreen then
         SetTextScale(scale, scale)
         SetTextFont(4)
         SetTextProportional(true)
-        SetTextEntry("STRING")
+        BeginTextCommandDisplayText("STRING")
         SetTextCentre(true)
         SetTextColour(255, 255, 255, 255)
         SetTextOutline()
-        AddTextComponentString(text)
-        DrawText(_x, _y)
+        AddTextComponentSubstringPlayerName(text)
+        EndTextCommandDisplayText(_x, _y)
     end
 end
 
@@ -95,7 +95,7 @@ function DrawText2D(x, y, text, scale, center)
     SetTextEdge(4, 0, 0, 0, 255)
     SetTextOutline()
     if center then SetTextJustification(0) end
-    SetTextEntry("STRING")
-    AddTextComponentString(text)
-    DrawText(x, y)
+    BeginTextCommandDisplayText("STRING")
+    AddTextComponentSubstringPlayerName(text)
+    EndTextCommandDisplayText(x, y)
 end

@@ -100,6 +100,20 @@ local center = true -- Set to false for left-aligned text
 DrawText2D(x, y, text, scale, center)
 ```
 
+## Utilizing Keys Functions
+
+#### GetKeyStringFromKeyID
+
+This function returns the string text for a FiveM control id
+
+```lua
+local keyID = 38
+local keyType, keyText = GetKeyStringFromKeyID(keyID)
+```
+If your using keyboard as the player this will return 0, "E" if your using controller it will return 1, "LB"
+
+The keyType aka 0 or 1 can be used on your end to determine how your script would display such key text
+
 ## Contributing
 
 Your contributions are invaluable! If you encounter a bug or have a brilliant enhancement in mind, please don't hesitate to open an issue or submit a pull request.
