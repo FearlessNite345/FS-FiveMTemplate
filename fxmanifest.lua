@@ -20,3 +20,7 @@ shared_scripts {
     'shared/*.lua',
     'config/*.lua'
 }
+
+dependencies {
+  'FS-Lib'
+}
