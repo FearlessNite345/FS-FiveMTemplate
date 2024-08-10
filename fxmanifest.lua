@@ -4,10 +4,6 @@ author "FearlessStudios"
 version '1.0.0'
 lua54 'yes'
 
-escrow_ignore {
-  'config/**/*'
-}
-
 client_scripts {
   'client/*.lua'
 }
@@ -17,7 +13,6 @@ server_scripts {
 }
 
 shared_scripts {
-    'shared/*.lua',
     'config/*.lua'
 }
 
